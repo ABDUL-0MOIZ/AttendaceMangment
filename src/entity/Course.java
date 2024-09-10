@@ -1,45 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
-
 import java.util.ArrayList;
-
-/**
- *
- * @author ABDUL MOIZ
- */
 public class Course {
-    private int c_code;
     private String name;
-       private ArrayList<Section> sec;
-public Course(){
-    this(0,"");
-    sec=new ArrayList();
-}
-    public ArrayList<Section> getSec() {
-        return sec;
+    private String c_code;
+    private ArrayList<Section> sections; 
+
+    public Course() {
+        
     }
 
-    public void addSection(Section s1){
-        this.sec.add(s1);
-    }
-
-
-    public Course(int c_code, String name) {
-        this.c_code = c_code;
+    public Course(String name) {
         this.name = name;
     }
 
-    public int getC_code() {
-        return c_code;
-    }
-
-    public void setC_code(int c_code) {
+    public Course(String name, String c_code, ArrayList<Section> sections) {
+        this.name = name;
         this.c_code = c_code;
+        this.sections = sections;
     }
-
+public Course(String name, String c_code, Section sections) {
+        this.name = name;
+        this.c_code = c_code;
+        this.sections.add(sections);
+    }
     public String getName() {
         return name;
     }
@@ -47,6 +30,26 @@ public Course(){
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getC_code() {
+        return c_code;
+    }
+
+    public void setC_code(String c_code) {
+        this.c_code = c_code;
+    }
+
+    public ArrayList<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(ArrayList<Section> sections) {
+        this.sections = sections;
+    }
+    
+    
+    
+   
     
     
 }

@@ -31,7 +31,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="66" red="8" type="rgb"/>
+          <Color blue="2f" green="22" red="17" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -50,7 +50,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="pic_slider" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -74,13 +73,18 @@
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="pic_slider" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="pic_slider" min="-2" pref="173" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="home" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="teacher_portal" min="-2" max="-2" attributes="0"/>
@@ -421,7 +425,7 @@
         <Container class="javax.swing.JPanel" name="teacher_panel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+              <Color blue="2f" green="22" red="17" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -444,7 +448,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Component id="jTabbedPane2" min="-2" pref="518" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -484,20 +488,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="search_student_name1" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="profile_update1" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="status_combo" min="-2" pref="98" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jScrollPane6" pref="592" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="serch" min="-2" pref="620" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="profile_update1" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="status_combo" min="-2" pref="98" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="592" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -506,7 +507,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="stname1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="624" max="32767" attributes="0"/>
+                                  <EmptySpace pref="461" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -515,7 +516,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="search_student_name1" max="32767" attributes="0"/>
+                              <Component id="serch" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="332" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -549,7 +550,7 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="search_student_name1">
+                    <Component class="javax.swing.JTextField" name="serch">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="0"/>
@@ -562,6 +563,9 @@
                           </Border>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="serchKeyPressed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane6">
                       <AuxValues>
@@ -570,7 +574,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="student_list1">
+                        <Component class="javax.swing.JTable" name="ListEnrol">
                           <Properties>
                             <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -584,7 +588,7 @@
                               <Font name="Segoe UI" size="14" style="0"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
+                              <Table columnCount="4" rowCount="0">
                                 <Column editable="true" title="Student Name" type="java.lang.Object"/>
                                 <Column editable="true" title="Course" type="java.lang.Object"/>
                                 <Column editable="true" title="Section" type="java.lang.Object"/>
@@ -647,6 +651,9 @@
                           </Border>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profile_update1ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="status_combo">
                       <Properties>
@@ -677,7 +684,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel11">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="cc" red="cc" type="rgb"/>
+                      <Color blue="2f" green="22" red="17" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -693,7 +700,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" pref="586" max="32767" attributes="0"/>
+                              <Component id="jScrollPane7" pref="597" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -716,15 +723,15 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="enrolled_courses1">
+                        <Component class="javax.swing.JTable" name="loadList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="0">
                                 <Column editable="true" title="Course" type="java.lang.Object"/>
                                 <Column editable="true" title="Teacher" type="java.lang.Object"/>
                                 <Column editable="true" title="Section" type="java.lang.Object"/>
-                                <Column editable="true" title="Class Days" type="java.lang.Object"/>
-                                <Column editable="true" title="Class Timing" type="java.lang.Object"/>
+                                <Column editable="true" title="Days" type="java.lang.Object"/>
+                                <Column editable="true" title="Time" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="toolTipText" type="java.lang.String" value="Assigned Courses Load "/>
@@ -776,7 +783,7 @@
         <Container class="javax.swing.JPanel" name="Attendance_panel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+              <Color blue="2f" green="22" red="17" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -831,14 +838,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="time" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="active_attendance" min="-2" max="-2" attributes="0"/>
@@ -908,7 +915,7 @@
                     <StringItem index="1" value="Programming Fundamental"/>
                     <StringItem index="2" value="Object Oriented Programming"/>
                     <StringItem index="3" value="Mobile App Development"/>
-                    <StringItem index="4" value="Web App Development "/>
+                    <StringItem index="4" value="Web App Development"/>
                     <StringItem index="5" value="Machine Learning"/>
                   </StringArray>
                 </Property>
@@ -987,7 +994,7 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Student  Name" type="java.lang.Object"/>
-                        <Column editable="true" title="Status" type="java.lang.Boolean"/>
+                        <Column editable="true" title="Atendance(P/A)" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Attendance sheet"/>
@@ -1030,6 +1037,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Create Attendance"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fetch_aActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="fetch_a1">
               <Properties>
@@ -1047,13 +1057,16 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fetch_a1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="setting_panel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+              <Color blue="2f" green="22" red="17" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1087,7 +1100,7 @@
                       <Component id="active_update" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1096,7 +1109,7 @@
             <Container class="javax.swing.JPanel" name="jPanel6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="cc" type="rgb"/>
+                  <Color blue="2f" green="22" red="17" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">

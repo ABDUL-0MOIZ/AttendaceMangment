@@ -1,13 +1,62 @@
 package Atendace_farame;
+import entity.Enrollment;
+import entity.University;
+import entity.WorkLoad;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.border.MatteBorder;
 import javax.swing.DefaultCellEditor;
+import javax.swing.table.DefaultTableModel;
 
 public class Teacher_Dashboard extends javax.swing.JFrame {
      
+    public void setworkList(){
+        University.dummyworkLoad();
+                  ArrayList <WorkLoad> work=  University.workLoads;
+         DefaultTableModel model = (DefaultTableModel) loadList.getModel();
+          model.setRowCount(0);
+        for(int i = 0 ; i<work.size();i++){   
+         Object [] data = new Object[5];
+            data[0]=work.get(i).getTeacher().getName();
+            data[1]=work.get(i).getCourse().getName();
+            data[2]=work.get(i).getSec().getName();
+            data[3]=work.get(i).getSec().getClass_days();
+            data[4]=work.get(i).getSec().getClass_time_slot();
+            
+            
+            
+            model.addRow(data);
+        }
+    }
+    ArrayList<Enrollment> obj = University.getEnrollments();
+void setStudentEnrollList(){
+    University.dummyEnrollment();
+    
+        
+        if(obj!=null){
+        DefaultTableModel model =(DefaultTableModel) ListEnrol.getModel();
+        model.setRowCount(0);
+        for(int i = 0 ; i<obj.size();i++){
+            Object[] cols=new Object[6];
+            cols[0]=obj.get(i).getStd().getName();
+            cols[1]=obj.get(i).getCourse().getName();
+            cols[2]=obj.get(i).getSec().getName();
+            cols[3]=obj.get(i).getStatus();
+            model.addRow(cols);
+            
+           
+        }
+        }
+        }
+  
     public Teacher_Dashboard() {
         initComponents();        
         this.setTitle("Teacher Portal");
@@ -16,6 +65,14 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         this.setIconImage(image);  
         setPanelTransparent();
         setImageSlider("D:\\front end  work\\AtetendaceMangement\\src\\pos\\assit\\wp2508260.jpg");
+        setworkList();
+        setStudentEnrollList();
+           LocalDate dte=LocalDate.now();
+           String dt =dte.format(DateTimeFormatter.ofPattern("dd-MM-YYYY"));
+          LocalTime tm= LocalTime.now();
+        String tim=  tm.format(DateTimeFormatter.ofPattern("hh-mm-ss"));
+        time.setText(tim);
+      date.setText(dt);
     }
    
     private void setImageSlider(String url){
@@ -61,14 +118,14 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
         stname1 = new javax.swing.JLabel();
-        search_student_name1 = new javax.swing.JTextField();
+        serch = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        student_list1 = new javax.swing.JTable();
+        ListEnrol = new javax.swing.JTable();
         profile_update1 = new javax.swing.JButton();
         status_combo = new javax.swing.JComboBox<>();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        enrolled_courses1 = new javax.swing.JTable();
+        loadList = new javax.swing.JTable();
         Attendance_panel = new javax.swing.JPanel();
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
@@ -101,7 +158,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(8, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(23, 34, 47));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(255, 255, 255)));
 
         home.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -198,7 +255,6 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pic_slider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -216,6 +272,10 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                     .addComponent(settings, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(a_portal, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pic_slider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +395,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Welcome", Welcome_panel);
 
-        teacher_panel.setBackground(new java.awt.Color(204, 204, 255));
+        teacher_panel.setBackground(new java.awt.Color(23, 34, 47));
 
         jTabbedPane2.setBackground(new java.awt.Color(204, 204, 255));
         jTabbedPane2.setForeground(new java.awt.Color(102, 102, 102));
@@ -349,28 +409,30 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         stname1.setText("Search Student by Name");
         stname1.setToolTipText("");
 
-        search_student_name1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        search_student_name1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        serch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        serch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        serch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                serchKeyPressed(evt);
+            }
+        });
 
-        student_list1.setAutoCreateRowSorter(true);
-        student_list1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-        student_list1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        student_list1.setModel(new javax.swing.table.DefaultTableModel(
+        ListEnrol.setAutoCreateRowSorter(true);
+        ListEnrol.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        ListEnrol.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ListEnrol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Student Name", "Course", "Section", "Status"
             }
         ));
-        student_list1.setRowMargin(3);
-        student_list1.setShowGrid(true);
-        jScrollPane6.setViewportView(student_list1);
-        if (student_list1.getColumnModel().getColumnCount() > 0) {
-            student_list1.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(status_combo)
+        ListEnrol.setRowMargin(3);
+        ListEnrol.setShowGrid(true);
+        jScrollPane6.setViewportView(ListEnrol);
+        if (ListEnrol.getColumnModel().getColumnCount() > 0) {
+            ListEnrol.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(status_combo)
 
             );
         }
@@ -381,6 +443,11 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         profile_update1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/upload.png"))); // NOI18N
         profile_update1.setText("Resolve");
         profile_update1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        profile_update1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profile_update1ActionPerformed(evt);
+            }
+        });
 
         status_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Approved", "Cancelled" }));
         status_combo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
@@ -396,28 +463,26 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(search_student_name1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(profile_update1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(status_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
-                        .addGap(185, 185, 185)))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(serch, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addComponent(profile_update1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(status_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(stname1)
-                    .addContainerGap(624, Short.MAX_VALUE)))
+                    .addContainerGap(461, Short.MAX_VALUE)))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(search_student_name1)
+                .addComponent(serch)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -434,21 +499,21 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Advisor Portal", jPanel10);
 
-        jPanel11.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel11.setBackground(new java.awt.Color(23, 34, 47));
 
-        enrolled_courses1.setModel(new javax.swing.table.DefaultTableModel(
+        loadList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Course", "Teacher", "Section", "Class Days", "Class Timing"
+                "Course", "Teacher", "Section", "Days", "Time"
             }
         ));
-        enrolled_courses1.setToolTipText("Assigned Courses Load ");
-        enrolled_courses1.setEnabled(false);
-        enrolled_courses1.setShowGrid(true);
-        enrolled_courses1.setSurrendersFocusOnKeystroke(true);
-        jScrollPane7.setViewportView(enrolled_courses1);
+        loadList.setToolTipText("Assigned Courses Load ");
+        loadList.setEnabled(false);
+        loadList.setShowGrid(true);
+        loadList.setSurrendersFocusOnKeystroke(true);
+        jScrollPane7.setViewportView(loadList);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -456,7 +521,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         jPanel11Layout.setVerticalGroup(
@@ -480,14 +545,14 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         teacher_panelLayout.setVerticalGroup(
             teacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teacher_panelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jTabbedPane.addTab("Teacher", teacher_panel);
 
-        Attendance_panel.setBackground(new java.awt.Color(204, 204, 255));
+        Attendance_panel.setBackground(new java.awt.Color(23, 34, 47));
 
         date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         date.setForeground(new java.awt.Color(102, 102, 102));
@@ -503,7 +568,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         time.setToolTipText("");
         time.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        select_course_a.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
+        select_course_a.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development", "Machine Learning" }));
         select_course_a.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         select_course_a.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,11 +606,11 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Student  Name", "Status"
+                "Student  Name", "Atendance(P/A)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -562,12 +627,22 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         fetch_a.setForeground(new java.awt.Color(255, 255, 255));
         fetch_a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/list.png"))); // NOI18N
         fetch_a.setText("Create Attendance");
+        fetch_a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fetch_aActionPerformed(evt);
+            }
+        });
 
         fetch_a1.setBackground(new java.awt.Color(8, 102, 255));
         fetch_a1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         fetch_a1.setForeground(new java.awt.Color(255, 255, 255));
         fetch_a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/list.png"))); // NOI18N
         fetch_a1.setText("Save");
+        fetch_a1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fetch_a1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Attendance_panelLayout = new javax.swing.GroupLayout(Attendance_panel);
         Attendance_panel.setLayout(Attendance_panelLayout);
@@ -602,13 +677,13 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         Attendance_panelLayout.setVerticalGroup(
             Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Attendance_panelLayout.createSequentialGroup()
                         .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(date)
                             .addComponent(time))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
                         .addComponent(active_attendance)
                         .addGap(13, 13, 13)))
@@ -625,9 +700,9 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Attendance", Attendance_panel);
 
-        setting_panel.setBackground(new java.awt.Color(204, 204, 255));
+        setting_panel.setBackground(new java.awt.Color(23, 34, 47));
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setBackground(new java.awt.Color(23, 34, 47));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Profile", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(102, 102, 255))); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -795,7 +870,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                 .addComponent(active_update)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("settings", setting_panel);
@@ -866,7 +941,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         if (dis==0) {
             this.setVisible(false);
             this.dispose();
-            new Login().setVisible(true);            
+            new Dashbord1().setVisible(true);            
         }        
         jTabbedPane.setSelectedIndex(0);
         setImageSlider("C:\\Users\\Bilal Arif\\Documents\\NetBeansProjects\\AMS\\src\\assets\\java1.jpg");
@@ -934,6 +1009,91 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_status_comboActionPerformed
 
+    private void serchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serchKeyPressed
+
+        // TODO add your handling code here:
+             DefaultTableModel model=(DefaultTableModel) ListEnrol.getModel();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!serch.getText().isEmpty()) {
+               Enrollment e = University.checkEnrol(serch.getText());
+                
+                model.setRowCount(0);
+            Object[] cols=new Object[4];
+            cols[0]=e.getStd().getName();
+            cols[1]=e.getCourse().getName();
+            cols[2]=e.getSec().getName();
+            cols[3]=e.getStatus();
+            model.addRow(cols);
+             
+                
+            }
+            else{
+               
+                setStudentEnrollList();
+            }
+
+        }
+    }//GEN-LAST:event_serchKeyPressed
+
+    private void profile_update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_update1ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) ListEnrol.getModel();
+
+               for (int i = 0; i < obj.size(); i++) 
+        {
+            if (model.getValueAt(i, 3).toString().equals("Aproved")) 
+            {
+                obj.get(i).setStatus(model.getValueAt(i, 3).toString());
+               
+                for (int j = 0; j < University.atend.size(); j++) 
+                {
+                    
+                    if (University.atend.get(j).getCourse().getName().equals(obj.get(i).getCourse().getName())&&University.atend.get(j).getSec().getName().equals(obj.get(i).getSec().getName()))
+                    {
+                        University.atend.get(j).setStd(obj.get(i).getStd());
+                            obj.remove(i);
+                            setStudentEnrollList();
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_profile_update1ActionPerformed
+
+    private void fetch_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetch_aActionPerformed
+        // TODO add your handling code here:
+        for(int i=0;i<University.atend.size();i++){
+       if(University.atend.get(i).getCourse().getName().equals( select_course_a.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(select_section_a.getSelectedItem().toString())){
+       
+           DefaultTableModel model= (DefaultTableModel) attendance_sheet.getModel();
+           for(int j=0;j < University.atend.get(i).getStd().size();j++){
+           Object [] std=new Object[1];
+           std[0]=University.atend.get(i).getStd().get(j).getName();
+           model.addRow(std);
+           }
+       }
+                }
+        
+    }//GEN-LAST:event_fetch_aActionPerformed
+
+    private void fetch_a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetch_a1ActionPerformed
+        // TODO add your handling code here:
+         DefaultTableModel model= (DefaultTableModel) attendance_sheet.getModel();
+        for(int i=0;i<University.atend.size();i++){
+       if(University.atend.get(i).getCourse().getName().equals( select_course_a.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(select_section_a.getSelectedItem().toString())){
+      University.atend.get(i).setDate(date.getText());
+      University.atend.get(i).setTime(time.getText());
+           for(int j=0;j < University.atend.get(i).getStd().size();j++){
+               
+          University.atend.get(i).getStd().get(j).setAtendace(model.getValueAt(j,1).toString());
+          University.erorr("Sucessfully done");
+           }
+       }
+        }
+        
+        
+        
+    }//GEN-LAST:event_fetch_a1ActionPerformed
+
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -945,13 +1105,13 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Attendance_panel;
+    private javax.swing.JTable ListEnrol;
     private javax.swing.JPanel Welcome_panel;
     private javax.swing.JLabel a_portal;
     private javax.swing.JLabel active_attendance;
     private javax.swing.JLabel active_update;
     private javax.swing.JTable attendance_sheet;
     private javax.swing.JLabel date;
-    private javax.swing.JTable enrolled_courses1;
     private javax.swing.JButton fetch_a;
     private javax.swing.JButton fetch_a1;
     private javax.swing.JLabel home;
@@ -979,6 +1139,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable loadList;
     private javax.swing.JLabel logOut;
     private javax.swing.JLabel pic_slider;
     private javax.swing.JTextField profile_name;
@@ -989,15 +1150,14 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField profile_u_name;
     private javax.swing.JButton profile_update;
     private javax.swing.JButton profile_update1;
-    private javax.swing.JTextField search_student_name1;
     private javax.swing.JComboBox<String> select_course_a;
     private javax.swing.JComboBox<String> select_section_a;
+    private javax.swing.JTextField serch;
     private javax.swing.JPanel setting_panel;
     private javax.swing.JLabel settings;
     private javax.swing.JLabel st_count;
     private javax.swing.JComboBox<String> status_combo;
     private javax.swing.JLabel stname1;
-    private javax.swing.JTable student_list1;
     private javax.swing.JPanel teacher_panel;
     private javax.swing.JLabel teacher_portal;
     private javax.swing.JLabel time;

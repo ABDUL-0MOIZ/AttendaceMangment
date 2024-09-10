@@ -15,11 +15,20 @@ public class Student extends Peron {
     private String Fname;
     private String Psvd;
     private float GPA;
- 
+ private String atendace;
     public Student() {
         this(0,"","","",0,"","","");
         
     }
+
+    public String getAtendace() {
+        return atendace;
+    }
+
+    public void setAtendace(String atendace) {
+        this.atendace = atendace;
+    }
+
 
     public String getFname() {
         return Fname;
@@ -35,6 +44,11 @@ public class Student extends Peron {
         this.Fname=fname;
         this.Psvd = Psvd;
         this.GPA = GPA;
+    }
+
+    public Student(String name, String Psvd) {
+      super.setName(name);
+        this.Psvd = Psvd;
     }
 
     public int getS_Id() {

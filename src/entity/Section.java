@@ -1,35 +1,24 @@
-
 package entity;
 
-/**
- *
- * @author ABDUL MOIZ
- */
-public class Section  {
-    
-    private String name;
-    private String day;
-    private String time;
-    private Teacher techer;
-    public Section(){
-  
-    this("","","");
-      techer = new Teacher(); 
-    
-}
 
-    public Section(String name, String day, String time ) {
-        this.name = name;
-        this.day = day;
-        this.time = time;
+public class Section {
+    private String name;//name of the section
+    private String class_days;
+    private String class_time_slot;    
+    
+    public Section() {
         
     }
-    
-    public Section(String name, String day, String time, Teacher obj) {
+
+    public Section(String name) {
         this.name = name;
-        this.day = day;
-        this.time = time;
-       this.techer = obj;
+    }
+
+    
+    public Section(String name, String class_days, String class_time_slot) {
+        this.name = name;
+        this.class_days = class_days;
+        this.class_time_slot = class_time_slot;
     }
 
     public String getName() {
@@ -40,29 +29,19 @@ public class Section  {
         this.name = name;
     }
 
-    public String getDay() {
-        return day;
+    public String getClass_days() {
+        return class_days;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public void setClass_days(String class_days) {
+        this.class_days = class_days;
     }
 
-    public String getTime() {
-        return time;
+    public String getClass_time_slot() {
+        return class_time_slot;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public Teacher getObj() {
-        return techer;
-    }
-
-    public void setObj(Teacher obj) {
-        this.techer = obj;
-    }
-    
-    
+    public void setClass_time_slot(String class_time_slot) {
+        this.class_time_slot = class_time_slot;
+    }       
 }
