@@ -1061,7 +1061,7 @@ boolean flag;
             String nm,Psd;
             nm=na.getText().toString();
             Psd=new String(pswd2.getPassword());
-            boolean flag=University.checkstd(Psd, nm);
+            boolean flag=University.checkstd(Psd,nm);
             if(flag){
                 this.setVisible(false);
                 this.dispose();

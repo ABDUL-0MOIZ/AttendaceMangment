@@ -619,7 +619,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="65" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel18" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="studno" min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -632,7 +632,7 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                          <Component id="studno" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -650,7 +650,7 @@
                     <Property name="text" type="java.lang.String" value="Student"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel18">
+                <Component class="javax.swing.JLabel" name="studno">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>
@@ -681,7 +681,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="64" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel20" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="crsnno" min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -694,7 +694,7 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                          <Component id="crsnno" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -715,7 +715,7 @@
                     <Property name="text" type="java.lang.String" value="Course"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel20">
+                <Component class="javax.swing.JLabel" name="crsnno">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>
@@ -746,7 +746,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="257" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel22" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="techno" min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
@@ -759,7 +759,7 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                          <Component id="techno" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -777,7 +777,7 @@
                     <Property name="text" type="java.lang.String" value="Teacher"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel22">
+                <Component class="javax.swing.JLabel" name="techno">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>

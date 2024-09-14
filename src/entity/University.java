@@ -63,6 +63,15 @@ public class University {
             erorr("Techer data is null");
         }
     }
+    public static boolean ceckworkload(String name,String c,String sec){
+        for(int i=0;i<University.workLoads.size();i++){
+            if(workLoads.get(i).getTeacher().getName().equals(name) &&workLoads.get(i).getCourse().getName().equals(c)&&workLoads.get(i).getSec().getName().equals(sec))
+                  return false;  
+                }
+        return true;
+        
+        
+    }
 
     public static void addstudent(Student s) {
         if (s != null) {
@@ -95,7 +104,14 @@ public class University {
         return null;
 
     }
-
+public static boolean checkenrol(String n,String c,String s){
+    for(int i=0;i<enrollments.size();i++){
+        if(enrollments.get(i).getStd().getName().equals(n)&&enrollments.get(i).getCourse().getName().equals(c)&&enrollments.get(i).getSec().getName().equals(s)){
+            return false;
+        }
+    }
+        return true;
+}
     public static void dummyUsers() {
         //up-casting
         techr.add(new Teacher("Bilal Arif", "bilal93", "1122", "Your First Teacher Name?", "mudasir", "Admin"));
@@ -233,7 +249,7 @@ techr.add(new Teacher("Aila Arshad", "Abdullah44", "4433", "Your First Teacher N
         }
         return false;
     }
-
+  
     public static ArrayList<Teacher> getTechr() {
         return techr;
     }

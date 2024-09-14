@@ -120,6 +120,9 @@ crsn.removeAllItems();
        setStudentList();
         setTeacherListList();
         setStudentEnrollList();
+        studno.setText(University.getStud().size()+"+");
+        crsnno.setText(University.getCourses().size()+"+");
+        techno.setText(University.techr.size()+"+");
     
     }
 
@@ -154,13 +157,13 @@ crsn.removeAllItems();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        studno = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        crsnno = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        techno = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -566,9 +569,9 @@ crsn.removeAllItems();
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Student");
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("500+");
+        studno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        studno.setForeground(new java.awt.Color(255, 255, 255));
+        studno.setText("500+");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -577,7 +580,7 @@ crsn.removeAllItems();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(studno, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55))
         );
@@ -587,7 +590,7 @@ crsn.removeAllItems();
                 .addGap(26, 26, 26)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18)
+                .addComponent(studno)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -600,9 +603,9 @@ crsn.removeAllItems();
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Course");
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("500+");
+        crsnno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        crsnno.setForeground(new java.awt.Color(255, 255, 255));
+        crsnno.setText("500+");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -611,7 +614,7 @@ crsn.removeAllItems();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crsnno, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
@@ -621,7 +624,7 @@ crsn.removeAllItems();
                 .addGap(26, 26, 26)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
+                .addComponent(crsnno)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -633,9 +636,9 @@ crsn.removeAllItems();
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Teacher");
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("500+");
+        techno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        techno.setForeground(new java.awt.Color(255, 255, 255));
+        techno.setText("500+");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -644,7 +647,7 @@ crsn.removeAllItems();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(257, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(techno, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(219, 219, 219))
         );
@@ -654,7 +657,7 @@ crsn.removeAllItems();
                 .addGap(26, 26, 26)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22)
+                .addComponent(techno)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1374,6 +1377,9 @@ crsn.removeAllItems();
 
         // TODO add your handling code here:
         jTabbedPane2.setSelectedIndex(0);
+           studno.setText(University.getStud().size()+"+");
+        crsnno.setText(University.getCourses().size()+"+");
+        techno.setText(University.techr.size()+"+");
     }//GEN-LAST:event_homeMouseClicked
 
     private void courseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_courseMouseClicked
@@ -1451,12 +1457,12 @@ crsn.removeAllItems();
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
         // TODO add your handling code here:
-        jTabbedPane2.setSelectedIndex(3);
+        jTabbedPane2.setSelectedIndex(4);
     }//GEN-LAST:event_jLabel31MouseClicked
 
     private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
         // TODO add your handling code here:
-        jTabbedPane2.setSelectedIndex(4);
+        jTabbedPane2.setSelectedIndex(3);
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1464,6 +1470,7 @@ crsn.removeAllItems();
         if (!stdn.getSelectedItem().toString().equals("--Select Student--")
                 && !crsn.getSelectedItem().toString().equals("--Select Course--")
                 && !sect.getSelectedItem().toString().equals("--Select Section--")) {
+            if(University.checkenrol(stdn.getSelectedItem().toString(), crsn.getSelectedItem().toString(), sect.getSelectedItem().toString() )){
             DefaultTableModel model = (DefaultTableModel) EnrolList.getModel();
             Object[] data = new Object[4];
             data[0] = stdn.getSelectedItem().toString();
@@ -1474,12 +1481,16 @@ crsn.removeAllItems();
             Enrollment stdEnrol = new Enrollment();
             stdEnrol.setStd(University.checkstdE(stdn.getSelectedItem().toString()));
             stdEnrol.setCourse(University.checkcourse(crsn.getSelectedItem().toString()));
-            Section sec = new Section();
-            sec.setName(sect.getSelectedItem().toString());
-            stdEnrol.setSec(sec);
+           
+            stdEnrol.setSec( stdEnrol.getCourse().checksection(sect.getSelectedItem().toString()));
             stdEnrol.setStatus("Pending");
             University.enrollments.add(stdEnrol);
             University.erorr("Added Succesfully");
+        
+        }
+        else{
+            University.erorr(stdn.getSelectedItem().toString()+" is already enrolled");
+        }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1526,12 +1537,13 @@ crsn.removeAllItems();
         if (!techn.getSelectedItem().toString().equals("--Select Student--")
                 && !crstn.getSelectedItem().toString().equals("--Select Course--")
                 && !secttn.getSelectedItem().toString().equals("--Select Section--")) {
-         
+         if(University.ceckworkload(techn.getSelectedItem().toString(),crstn.getSelectedItem().toString() , secttn.getSelectedItem().toString())){
             WorkLoad TecL = new WorkLoad();
             TecL.setCourse(University.checkcourse(crstn.getSelectedItem().toString()));
-        
+           TecL.setSec(TecL.getCourse().checksection(secttn.getSelectedItem().toString()));
             TecL.setTeacher(University.checkteacher(techn.getSelectedItem().toString()));
             University.workLoads.add(TecL);
+            
             DefaultTableModel model = (DefaultTableModel) loadList.getModel();
             Object[] data = new Object[3];
             data[0] = techn.getSelectedItem().toString();
@@ -1542,6 +1554,10 @@ crsn.removeAllItems();
 
             
             University.erorr("AddedSuccesfully");
+         }
+         else{
+             University.erorr(techn.getSelectedItem().toString()+" IS ALready enroll in this Section");
+         }
         }
         
 
@@ -1899,6 +1915,7 @@ crsn.removeAllItems();
     private javax.swing.JTextField course_code;
     private javax.swing.JTextField course_name;
     private javax.swing.JComboBox<String> crsn;
+    private javax.swing.JLabel crsnno;
     private javax.swing.JComboBox<String> crstn;
     private javax.swing.JLabel dellet;
     private javax.swing.JLabel home;
@@ -1914,12 +1931,9 @@ crsn.removeAllItems();
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -1996,7 +2010,9 @@ crsn.removeAllItems();
     private javax.swing.JTable sectionL;
     private javax.swing.JComboBox<String> secttn;
     private javax.swing.JComboBox<String> stdn;
+    private javax.swing.JLabel studno;
     private javax.swing.JComboBox<String> techn;
+    private javax.swing.JLabel techno;
     private javax.swing.JComboBox<String> user;
     // End of variables declaration//GEN-END:variables
 }

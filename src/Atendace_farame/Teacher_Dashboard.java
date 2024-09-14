@@ -299,7 +299,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                 .addGap(76, 76, 76))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 543));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 543));
 
         jTabbedPane.setBackground(new java.awt.Color(204, 204, 255));
         jTabbedPane.setAutoscrolls(true);
@@ -312,13 +312,16 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         Welcome_panel.setBackground(new java.awt.Color(204, 204, 255));
         Welcome_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(23, 34, 47));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Students");
 
         st_count.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        st_count.setForeground(new java.awt.Color(255, 255, 255));
         st_count.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         st_count.setText("70+");
 
@@ -341,13 +344,16 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
         Welcome_panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 290, 130));
 
+        jPanel4.setBackground(new java.awt.Color(23, 34, 47));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Coureses");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("150+");
 
@@ -370,13 +376,16 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
         Welcome_panel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 260, 130));
 
+        jPanel5.setBackground(new java.awt.Color(23, 34, 47));
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Teachers");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("250+");
 
@@ -393,15 +402,15 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Welcome_panel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 561, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/java3.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        Welcome_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 630, 550));
+        Welcome_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 640, 560));
 
         jTabbedPane.addTab("Welcome", Welcome_panel);
 
@@ -691,13 +700,13 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         Attendance_panelLayout.setVerticalGroup(
             Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Attendance_panelLayout.createSequentialGroup()
                         .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(date)
                             .addComponent(time))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
                         .addComponent(active_attendance)
                         .addGap(13, 13, 13)))

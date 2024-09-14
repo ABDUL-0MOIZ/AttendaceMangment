@@ -508,6 +508,7 @@ crsn.removeAllItems();
         if (!crsn.getSelectedItem().toString().equals("--Select Student--")
                 && !crsn.getSelectedItem().toString().equals("--Select Course--")
                 && !sect.getSelectedItem().toString().equals("--Select Section--")) {
+             if(University.checkenrol(stdn.getSelectedItem().toString(), crsn.getSelectedItem().toString(), sect.getSelectedItem().toString() )){
             DefaultTableModel model = (DefaultTableModel) EnrolList.getModel();
             Object[] data = new Object[4];
             data[0] = stdn.getSelectedItem().toString();
@@ -525,7 +526,10 @@ crsn.removeAllItems();
             University.enrollments.add(stdEnrol);
             University.erorr("Added Succesfully");
         }
-
+             else{
+                  University.erorr(stdn.getSelectedItem().toString()+" is already enrolled");
+             }
+        }
         
         
         
