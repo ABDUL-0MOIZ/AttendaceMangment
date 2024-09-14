@@ -58,6 +58,7 @@ public class University {
     public static void addtecher(Teacher t) {
         if (t != null) {
             University.techr.add(t);
+        erorr("Added Sucessfully");
         } else {
             erorr("Techer data is null");
         }
@@ -66,8 +67,9 @@ public class University {
     public static void addstudent(Student s) {
         if (s != null) {
             University.stud.add(s);
+            erorr("Added Sucessfully");
         } else {
-            erorr("Techer data is null");
+            erorr("Student data is null");
         }
     }
 

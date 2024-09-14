@@ -17,6 +17,21 @@ public class StudentPortal extends javax.swing.JFrame {
     /**
      * Creates new form StudentPortal
      */
+    void setcoursestd(){
+crsn.removeAllItems();
+         for(int i=0;i<University.getCourses().size();i++){
+        
+        
+             crsn.addItem(University.courses.get(i).getName());
+        
+        }
+    }
+   void setstud(){
+        stdn.removeAllItems();
+        for(int i=0;i<University.stud.size();i++){
+        stdn.addItem(University.getStud().get(i).getName());
+        }
+    }
     public StudentPortal() {
         initComponents();
     }
@@ -289,6 +304,11 @@ public class StudentPortal extends javax.swing.JFrame {
         crsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
         crsn.setToolTipText("Section");
         crsn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        crsn.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crsnItemStateChanged(evt);
+            }
+        });
 
         course_reg.setBackground(new java.awt.Color(8, 102, 255));
         course_reg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -436,6 +456,9 @@ public class StudentPortal extends javax.swing.JFrame {
     private void courseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_courseMouseClicked
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
+      
+        setstud();
+        setcoursestd();
     }//GEN-LAST:event_courseMouseClicked
 
     private void courseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_courseMouseEntered
@@ -516,6 +539,23 @@ public class StudentPortal extends javax.swing.JFrame {
     private void stdnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stdnActionPerformed
+
+    private void crsnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_crsnItemStateChanged
+        // TODO add your handling code here:
+           
+         sect.removeAllItems();
+        for(int j=0;j<University.courses.size();j++){
+            if(crsn.getSelectedItem()!=null){
+        if(crsn.getSelectedItem().toString().equals(University.courses.get(j).getName()))
+        {
+            
+         for(int i = 0 ; i< University.courses.get(j).getSections().size();i++){
+        sect.addItem(University.courses.get(j).getSections().get(i).getName());
+        }
+        }
+        }
+        }
+    }//GEN-LAST:event_crsnItemStateChanged
 
     /**
      * @param args the command line arguments

@@ -37,26 +37,35 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         }
     }
     ArrayList<Enrollment> obj = University.getEnrollments();
-void setStudentEnrollList(){
-    University.dummyEnrollment();
-    
+
+ 
+
+    void setStudentEnrollList() {
+
+        if (obj != null) {
+            DefaultTableModel model = (DefaultTableModel) ListEnrol.getModel();
+            model.setRowCount(0);
+            for (int i = 0; i < obj.size(); i++) {
+                Object[] cols = new Object[6];
+                cols[0] = obj.get(i).getStd().getName();
+                cols[1] = obj.get(i).getCourse().getName();
+                cols[2] = obj.get(i).getSec().getName();
+                cols[3] = obj.get(i).getStatus();
+                model.addRow(cols);
+
+            }
+        }
+    }
+      void setcourse(){
+
+         for(int i=0;i<University.getCourses().size();i++){
         
-        if(obj!=null){
-        DefaultTableModel model =(DefaultTableModel) ListEnrol.getModel();
-        model.setRowCount(0);
-        for(int i = 0 ; i<obj.size();i++){
-            Object[] cols=new Object[6];
-            cols[0]=obj.get(i).getStd().getName();
-            cols[1]=obj.get(i).getCourse().getName();
-            cols[2]=obj.get(i).getSec().getName();
-            cols[3]=obj.get(i).getStatus();
-            model.addRow(cols);
-            
-           
+        
+             crstn.addItem(University.courses.get(i).getName());
+        
         }
-        }
-        }
-  
+    }
+
     public Teacher_Dashboard() {
         initComponents();        
         this.setTitle("Teacher Portal");
@@ -129,8 +138,8 @@ void setStudentEnrollList(){
         Attendance_panel = new javax.swing.JPanel();
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
-        select_course_a = new javax.swing.JComboBox<>();
-        select_section_a = new javax.swing.JComboBox<>();
+        crstn = new javax.swing.JComboBox<>();
+        secttn = new javax.swing.JComboBox<>();
         active_attendance = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         attendance_sheet = new javax.swing.JTable();
@@ -138,16 +147,12 @@ void setStudentEnrollList(){
         fetch_a1 = new javax.swing.JButton();
         setting_panel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        profile_name = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         profile_u_name = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         profile_pass = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
         profile_security_a = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        profile_security_q = new javax.swing.JComboBox<>();
         profile_role = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         profile_update = new javax.swing.JButton();
@@ -298,6 +303,11 @@ void setStudentEnrollList(){
 
         jTabbedPane.setBackground(new java.awt.Color(204, 204, 255));
         jTabbedPane.setAutoscrolls(true);
+        jTabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPaneMouseClicked(evt);
+            }
+        });
 
         Welcome_panel.setBackground(new java.awt.Color(204, 204, 255));
         Welcome_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -391,7 +401,7 @@ void setStudentEnrollList(){
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/java3.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        Welcome_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 550));
+        Welcome_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 630, 550));
 
         jTabbedPane.addTab("Welcome", Welcome_panel);
 
@@ -401,7 +411,7 @@ void setStudentEnrollList(){
         jTabbedPane2.setForeground(new java.awt.Color(102, 102, 102));
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jPanel10.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel10.setBackground(new java.awt.Color(23, 34, 47));
 
         stname1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stname1.setForeground(new java.awt.Color(102, 102, 102));
@@ -545,7 +555,7 @@ void setStudentEnrollList(){
         teacher_panelLayout.setVerticalGroup(
             teacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teacher_panelLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -568,20 +578,24 @@ void setStudentEnrollList(){
         time.setToolTipText("");
         time.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        select_course_a.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development", "Machine Learning" }));
-        select_course_a.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-        select_course_a.addActionListener(new java.awt.event.ActionListener() {
+        crstn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        crstn.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crstnItemStateChanged(evt);
+            }
+        });
+        crstn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                select_course_aActionPerformed(evt);
+                crstnActionPerformed(evt);
             }
         });
 
-        select_section_a.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Section--", "W1", "W2", "W3", "W4", "W5", "W6" }));
-        select_section_a.setToolTipText("Section");
-        select_section_a.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-        select_section_a.addActionListener(new java.awt.event.ActionListener() {
+        secttn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Section--", "W1", "W2", "W3", "W4", "W5", "W6" }));
+        secttn.setToolTipText("Section");
+        secttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        secttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                select_section_aActionPerformed(evt);
+                secttnActionPerformed(evt);
             }
         });
 
@@ -660,14 +674,14 @@ void setStudentEnrollList(){
                             .addGroup(Attendance_panelLayout.createSequentialGroup()
                                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
-                                        .addComponent(select_course_a, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(crstn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
                                         .addComponent(active_attendance)
                                         .addGap(119, 119, 119)))
                                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(date)
-                                    .addComponent(select_section_a, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(secttn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fetch_a)
@@ -677,19 +691,19 @@ void setStudentEnrollList(){
         Attendance_panelLayout.setVerticalGroup(
             Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Attendance_panelLayout.createSequentialGroup()
                         .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(date)
                             .addComponent(time))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Attendance_panelLayout.createSequentialGroup()
                         .addComponent(active_attendance)
                         .addGap(13, 13, 13)))
                 .addGroup(Attendance_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(select_course_a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(select_section_a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crstn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(secttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fetch_a))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -704,16 +718,6 @@ void setStudentEnrollList(){
 
         jPanel6.setBackground(new java.awt.Color(23, 34, 47));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Profile", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(102, 102, 255))); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Full Name");
-        jLabel18.setToolTipText("");
-
-        profile_name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        profile_name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-        profile_name.setEnabled(false);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
@@ -734,12 +738,6 @@ void setStudentEnrollList(){
         profile_pass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         profile_pass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("Security Question");
-        jLabel21.setToolTipText("");
-
         profile_security_a.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         profile_security_a.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
@@ -748,10 +746,6 @@ void setStudentEnrollList(){
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Role");
         jLabel22.setToolTipText("");
-
-        profile_security_q.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        profile_security_q.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Security Questions--", "What is your Mother name?", "Your First Pet Name?", "Your First Teacher Name?" }));
-        profile_security_q.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         profile_role.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         profile_role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Role--", "Student", "Teacher" }));
@@ -778,60 +772,53 @@ void setStudentEnrollList(){
                 .addGap(27, 27, 27)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(profile_update, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(profile_u_name, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(profile_role, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(profile_name, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)
-                            .addComponent(profile_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23)
-                            .addComponent(profile_security_a, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(225, 225, 225)
+                                .addComponent(jLabel23))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(profile_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(profile_security_a, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
-                                .addComponent(profile_u_name)
-                                .addComponent(jLabel21)
-                                .addComponent(profile_security_q, 0, 238, Short.MAX_VALUE))
-                            .addComponent(profile_role, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27))))
+                                .addGap(224, 224, 224)
+                                .addComponent(jLabel22)))
+                        .addContainerGap(40, Short.MAX_VALUE))))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(profile_update, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(profile_name))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(profile_u_name, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(profile_security_q)
-                            .addComponent(profile_pass)))
-                    .addComponent(jLabel21))
-                .addGap(18, 18, 18)
+                        .addContainerGap()
+                        .addComponent(jLabel22)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
+                    .addComponent(profile_u_name, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
                     .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(profile_role)
-                    .addComponent(profile_security_a))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(profile_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_security_a, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addComponent(profile_update, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         active_update.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -870,7 +857,7 @@ void setStudentEnrollList(){
                 .addComponent(active_update)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("settings", setting_panel);
@@ -920,6 +907,7 @@ void setStudentEnrollList(){
         // TODO add your handling code here:
         setImageSlider("C:\\Users\\Bilal Arif\\Documents\\NetBeansProjects\\AMS\\src\\assets\\attendance_pic.jpg");
         jTabbedPane.setSelectedIndex(2);
+         setcourse();
     }//GEN-LAST:event_a_portalMouseClicked
 
     private void settingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseClicked
@@ -969,13 +957,13 @@ void setStudentEnrollList(){
         // TODO add your handling code here:
     }//GEN-LAST:event_active_updateMouseExited
 
-    private void select_course_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_course_aActionPerformed
+    private void crstnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crstnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_select_course_aActionPerformed
+    }//GEN-LAST:event_crstnActionPerformed
 
-    private void select_section_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_section_aActionPerformed
+    private void secttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secttnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_select_section_aActionPerformed
+    }//GEN-LAST:event_secttnActionPerformed
 
     private void active_attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_active_attendanceMouseClicked
         // TODO add your handling code here:
@@ -1037,34 +1025,42 @@ void setStudentEnrollList(){
 
     private void profile_update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_update1ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) ListEnrol.getModel();
+       DefaultTableModel model = (DefaultTableModel) ListEnrol.getModel();
 
-               for (int i = 0; i < obj.size(); i++) 
+        for (int i = 0 ; i < obj.size(); i++) 
         {
-            if (model.getValueAt(i, 3).toString().equals("Aproved")) 
+            if (model.getValueAt(i, 3).toString().equals("Approved")) 
             {
+                 University.erorr(model.getValueAt(i, 3).toString());
+                
                 obj.get(i).setStatus(model.getValueAt(i, 3).toString());
-               
                 for (int j = 0; j < University.atend.size(); j++) 
                 {
                     
-                    if (University.atend.get(j).getCourse().getName().equals(obj.get(i).getCourse().getName())&&University.atend.get(j).getSec().getName().equals(obj.get(i).getSec().getName()))
+                    
+                    if (University.atend.get(j).getCourse().getName().equals(obj.get(i).getCourse().getName()) && University.atend.get(j).getSec().getName().equals(obj.get(i).getSec().getName()))
                     {
+                        if (model.getValueAt(i, 3).toString().equals("Approved")) 
+            {
+                        University.erorr(obj.get(i).getCourse().getName());
                         University.atend.get(j).setStd(obj.get(i).getStd());
-                            obj.remove(i);
-                            setStudentEnrollList();
+                        obj.remove(i);
+                        setStudentEnrollList();
+            }
                     }
                 }
             }
         }
+
     }//GEN-LAST:event_profile_update1ActionPerformed
 
     private void fetch_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetch_aActionPerformed
         // TODO add your handling code here:
         for(int i=0;i<University.atend.size();i++){
-       if(University.atend.get(i).getCourse().getName().equals( select_course_a.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(select_section_a.getSelectedItem().toString())){
+       if(University.atend.get(i).getCourse().getName().equals( crstn.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(secttn.getSelectedItem().toString())){
        
            DefaultTableModel model= (DefaultTableModel) attendance_sheet.getModel();
+           model.setRowCount(0);
            for(int j=0;j < University.atend.get(i).getStd().size();j++){
            Object [] std=new Object[1];
            std[0]=University.atend.get(i).getStd().get(j).getName();
@@ -1079,7 +1075,7 @@ void setStudentEnrollList(){
         // TODO add your handling code here:
          DefaultTableModel model= (DefaultTableModel) attendance_sheet.getModel();
         for(int i=0;i<University.atend.size();i++){
-       if(University.atend.get(i).getCourse().getName().equals( select_course_a.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(select_section_a.getSelectedItem().toString())){
+       if(University.atend.get(i).getCourse().getName().equals( crstn.getSelectedItem().toString())&&University.atend.get(i).getSec().getName().equals(secttn.getSelectedItem().toString())){
       University.atend.get(i).setDate(date.getText());
       University.atend.get(i).setTime(time.getText());
            for(int j=0;j < University.atend.get(i).getStd().size();j++){
@@ -1093,6 +1089,27 @@ void setStudentEnrollList(){
         
         
     }//GEN-LAST:event_fetch_a1ActionPerformed
+
+    private void crstnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_crstnItemStateChanged
+        // TODO add your handling code here:
+            secttn.removeAllItems();
+        for(int j=0;j<University.courses.size();j++){
+            if(crstn.getSelectedItem()!=null){
+        if(crstn.getSelectedItem().toString().equals(University.courses.get(j).getName()))
+        {
+            
+         for(int i = 0 ; i< University.courses.get(j).getSections().size();i++){
+        secttn.addItem(University.courses.get(j).getSections().get(i).getName());
+        }
+        }
+        }
+        }
+    }//GEN-LAST:event_crstnItemStateChanged
+
+    private void jTabbedPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTabbedPaneMouseClicked
 
     public static void main(String args[]) {
         
@@ -1111,6 +1128,7 @@ void setStudentEnrollList(){
     private javax.swing.JLabel active_attendance;
     private javax.swing.JLabel active_update;
     private javax.swing.JTable attendance_sheet;
+    private javax.swing.JComboBox<String> crstn;
     private javax.swing.JLabel date;
     private javax.swing.JButton fetch_a;
     private javax.swing.JButton fetch_a1;
@@ -1119,10 +1137,8 @@ void setStudentEnrollList(){
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
@@ -1142,16 +1158,13 @@ void setStudentEnrollList(){
     private javax.swing.JTable loadList;
     private javax.swing.JLabel logOut;
     private javax.swing.JLabel pic_slider;
-    private javax.swing.JTextField profile_name;
     private javax.swing.JTextField profile_pass;
     private javax.swing.JComboBox<String> profile_role;
     private javax.swing.JTextField profile_security_a;
-    private javax.swing.JComboBox<String> profile_security_q;
     private javax.swing.JTextField profile_u_name;
     private javax.swing.JButton profile_update;
     private javax.swing.JButton profile_update1;
-    private javax.swing.JComboBox<String> select_course_a;
-    private javax.swing.JComboBox<String> select_section_a;
+    private javax.swing.JComboBox<String> secttn;
     private javax.swing.JTextField serch;
     private javax.swing.JPanel setting_panel;
     private javax.swing.JLabel settings;

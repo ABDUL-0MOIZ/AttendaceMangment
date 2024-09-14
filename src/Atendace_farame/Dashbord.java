@@ -59,10 +59,41 @@ public class Dashbord extends javax.swing.JFrame {
                 cols[2] = obj.get(i).getPh_no();
                 cols[3] = obj.get(i).getEmail();
                 model.addRow(cols);
-
+                  
             }
         }
     }
+    void setitems(){
+        techn.removeAllItems();
+        for(int i=0;i<University.getTechr().size();i++){
+        techn.addItem(University.getTechr().get(i).getName());
+        }
+    }
+     void setstud(){
+        stdn.removeAllItems();
+        for(int i=0;i<University.stud.size();i++){
+        stdn.addItem(University.getStud().get(i).getName());
+        }
+    }
+    void setcourse(){
+
+         for(int i=0;i<University.getCourses().size();i++){
+        
+        
+             crstn.addItem(University.courses.get(i).getName());
+        
+        }
+    }
+    void setcoursestd(){
+crsn.removeAllItems();
+         for(int i=0;i<University.getCourses().size();i++){
+        
+        
+             crsn.addItem(University.courses.get(i).getName());
+        
+        }
+    }
+   
     ArrayList<Enrollment> obj =  University.getEnrollments();
 
     void setStudentEnrollList() {
@@ -86,10 +117,10 @@ public class Dashbord extends javax.swing.JFrame {
         initComponents();
         sections = new ArrayList();
         this.setTitle("Admin Portal");
-        setStudentList();
+       setStudentList();
         setTeacherListList();
         setStudentEnrollList();
-
+    
     }
 
     @SuppressWarnings("unchecked")
@@ -147,10 +178,10 @@ public class Dashbord extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jTextField4 = new javax.swing.JTextField();
+        pswd2 = new javax.swing.JPasswordField();
+        user = new javax.swing.JComboBox<>();
+        pswd = new javax.swing.JPasswordField();
+        name = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -492,14 +523,16 @@ public class Dashbord extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(3, 3, 3))
                             .addComponent(jLabel10)
                             .addComponent(home)
                             .addComponent(ad)))
                     .addComponent(course)
                     .addComponent(jLabel32)
                     .addComponent(jLabel13))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(71, 71, 71))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,20 +780,28 @@ public class Dashbord extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Name");
 
-        jPasswordField1.setText("jPasswordField1");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Teacher" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        pswd2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                pswd2ActionPerformed(evt);
             }
         });
 
-        jPasswordField2.setText("jPasswordField1");
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        user.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Teacher" }));
+        user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                userActionPerformed(evt);
+            }
+        });
+
+        pswd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pswdActionPerformed(evt);
+            }
+        });
+
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
             }
         });
 
@@ -781,12 +822,12 @@ public class Dashbord extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pswd2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24)
                             .addComponent(jLabel26)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28)
                             .addComponent(jLabel27)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -799,19 +840,19 @@ public class Dashbord extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28)
                 .addGap(2, 2, 2)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jButton2)
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -825,6 +866,12 @@ public class Dashbord extends javax.swing.JFrame {
         jTabbedPane2.addTab("Add User", jPanel6);
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -922,6 +969,11 @@ public class Dashbord extends javax.swing.JFrame {
         jPanel14.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 151, 504, 197));
 
         crsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
+        crsn.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crsnItemStateChanged(evt);
+            }
+        });
         crsn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crsnActionPerformed(evt);
@@ -950,6 +1002,12 @@ public class Dashbord extends javax.swing.JFrame {
         jTabbedPane2.addTab("Student", jPanel7);
 
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane3MouseClicked(evt);
+            }
+        });
 
         jPanel16.setBackground(new java.awt.Color(25, 34, 47));
 
@@ -1026,21 +1084,35 @@ public class Dashbord extends javax.swing.JFrame {
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Section");
 
-        techn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Teacher--", "Ali Ahamad", "Junaid Sultan", "Aila Arshad", " " }));
+        techn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Teacher--" }));
         techn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 technActionPerformed(evt);
             }
         });
 
-        crstn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
+        crstn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--sellect--" }));
+        crstn.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crstnItemStateChanged(evt);
+            }
+        });
         crstn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crstnActionPerformed(evt);
             }
         });
+        crstn.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                crstnPropertyChange(evt);
+            }
+        });
+        crstn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                crstnKeyPressed(evt);
+            }
+        });
 
-        secttn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Section--", "W1", "W2", "W3", "W4", "W5", "W6" }));
         secttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 secttnActionPerformed(evt);
@@ -1220,7 +1292,7 @@ public class Dashbord extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Teacher", jPanel12);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 920, 470));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 920, 450));
 
         profiletop.setText("File");
 
@@ -1342,16 +1414,39 @@ public class Dashbord extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sectionLMouseClicked
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_userActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        if(!name.getText().isEmpty()&&
+               !new String( pswd.getPassword()).isEmpty()
+                &&!new String(pswd2.getPassword()).isEmpty()){
+            
+            if(user.getSelectedItem().toString().equals("Student"))
+            {
+                if(new String( pswd.getPassword()).equals(new String(pswd2.getPassword())) )
+                {               Student s1=new Student();
+                s1.setName(name.getText());
+                s1.setPsvd(new String( pswd.getPassword()));
+                University.addstudent(s1);
+            }
+            }
+            else{
+                if(new String( pswd.getPassword()).equals(new String(pswd2.getPassword())))
+                {              
+                    Teacher s1=new Teacher();
+                s1.setName(name.getText());
+                s1.setTpswd(new String( pswd.getPassword()));
+                University.addtecher(s1);
+            }
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
@@ -1431,6 +1526,12 @@ public class Dashbord extends javax.swing.JFrame {
         if (!techn.getSelectedItem().toString().equals("--Select Student--")
                 && !crstn.getSelectedItem().toString().equals("--Select Course--")
                 && !secttn.getSelectedItem().toString().equals("--Select Section--")) {
+         
+            WorkLoad TecL = new WorkLoad();
+            TecL.setCourse(University.checkcourse(crstn.getSelectedItem().toString()));
+        
+            TecL.setTeacher(University.checkteacher(techn.getSelectedItem().toString()));
+            University.workLoads.add(TecL);
             DefaultTableModel model = (DefaultTableModel) loadList.getModel();
             Object[] data = new Object[3];
             data[0] = techn.getSelectedItem().toString();
@@ -1439,13 +1540,10 @@ public class Dashbord extends javax.swing.JFrame {
 
             model.addRow(data);
 
-            WorkLoad TecL = new WorkLoad();
-            TecL.setCourse(University.checkcourse(crstn.getSelectedItem().toString()));
-            TecL.setTeacher(University.checkteacher(techn.getSelectedItem().toString()));
-            University.workLoads.add(TecL);
+            
             University.erorr("AddedSuccesfully");
         }
-
+        
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -1657,26 +1755,100 @@ public class Dashbord extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         DefaultTableModel model = (DefaultTableModel) StdEnrol.getModel();
 
-        for (int i = 0; i < obj.size(); i++) 
+        for (int i = 0 ; i < obj.size(); i++) 
         {
             if (model.getValueAt(i, 3).toString().equals("Aproved")) 
             {
+                 University.erorr(model.getValueAt(i, 3).toString());
+                
                 obj.get(i).setStatus(model.getValueAt(i, 3).toString());
-               
                 for (int j = 0; j < University.atend.size(); j++) 
                 {
                     
-                    if (University.atend.get(j).getCourse().getName().equals(obj.get(i).getCourse().getName())&&University.atend.get(j).getSec().getName().equals(obj.get(i).getSec().getName()))
+                    
+                    if (University.atend.get(j).getCourse().getName().equals(obj.get(i).getCourse().getName()) && University.atend.get(j).getSec().getName().equals(obj.get(i).getSec().getName()))
                     {
+                        if (model.getValueAt(i, 3).toString().equals("Aproved")) 
+            {
+                        University.erorr(obj.get(i).getCourse().getName());
                         University.atend.get(j).setStd(obj.get(i).getStd());
-                            obj.remove(i);
-                            setStudentEnrollList();
+                        obj.remove(i);
+                        setStudentEnrollList();
+            }
                     }
                 }
             }
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        setStudentList();
+        setstud();
+        setcoursestd();
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jTabbedPane3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane3MouseClicked
+        // TODO add your handling code here:
+           setitems();
+            setTeacherListList();
+      setStudentEnrollList();
+      crstn.removeAllItems();      
+      setcourse();
+      
+     
+    }//GEN-LAST:event_jTabbedPane3MouseClicked
+
+    private void crstnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_crstnItemStateChanged
+        // TODO add your handling code here:
+         secttn.removeAllItems();
+        for(int j=0;j<University.courses.size();j++){
+            if(crstn.getSelectedItem()!=null){
+        if(crstn.getSelectedItem().toString().equals(University.courses.get(j).getName()))
+        {
+            
+         for(int i = 0 ; i< University.courses.get(j).getSections().size();i++){
+        secttn.addItem(University.courses.get(j).getSections().get(i).getName());
+        }
+        }
+        }
+        }
+    }//GEN-LAST:event_crstnItemStateChanged
+
+    private void crstnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_crstnKeyPressed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_crstnKeyPressed
+
+    private void crstnPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_crstnPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crstnPropertyChange
+
+    private void crsnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_crsnItemStateChanged
+        // TODO add your handling code here:
+        
+         sect.removeAllItems();
+        for(int j=0;j<University.courses.size();j++){
+            if(crsn.getSelectedItem()!=null){
+        if(crsn.getSelectedItem().toString().equals(University.courses.get(j).getName()))
+        {
+            
+         for(int i = 0 ; i< University.courses.get(j).getSections().size();i++){
+        sect.addItem(University.courses.get(j).getSections().get(i).getName());
+        }
+        }
+        }
+        }
+    }//GEN-LAST:event_crsnItemStateChanged
+
+    private void pswdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswdActionPerformed
+
+    private void pswd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswd2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswd2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1735,7 +1907,6 @@ public class Dashbord extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -1800,8 +1971,6 @@ public class Dashbord extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1812,19 +1981,22 @@ public class Dashbord extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTable loadList;
     private javax.swing.JButton logout;
+    private javax.swing.JTextField name;
     public javax.swing.JPanel profile;
     private javax.swing.JMenuItem profileLogOut;
     private javax.swing.JButton profilebtn;
     private javax.swing.JMenu profiletop;
+    private javax.swing.JPasswordField pswd;
+    private javax.swing.JPasswordField pswd2;
     private javax.swing.JComboBox<String> sect;
     private javax.swing.JTable sectionL;
     private javax.swing.JComboBox<String> secttn;
     private javax.swing.JComboBox<String> stdn;
     private javax.swing.JComboBox<String> techn;
+    private javax.swing.JComboBox<String> user;
     // End of variables declaration//GEN-END:variables
 }

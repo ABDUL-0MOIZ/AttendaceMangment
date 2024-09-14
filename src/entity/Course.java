@@ -12,7 +12,17 @@ public class Course {
     public Course(String name) {
         this.name = name;
     }
-
+public Section checksection(String secn)
+{
+    for(int i=0;i<sections.size();i++){
+      if(secn.equals(sections.get(i).getName()))
+      {
+          return sections.get(i);
+      }
+          }
+        return null;
+    
+}
     public Course(String name, String c_code, ArrayList<Section> sections) {
         this.name = name;
         this.c_code = c_code;
