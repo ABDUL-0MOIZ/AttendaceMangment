@@ -185,28 +185,6 @@ crsn.removeAllItems();
         jLabel28 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel13 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        StdList = new javax.swing.JTable();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        stdn = new javax.swing.JComboBox<>();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        EnrolList = new javax.swing.JTable();
-        crsn = new javax.swing.JComboBox<>();
-        sect = new javax.swing.JComboBox<>();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel16 = new javax.swing.JPanel();
@@ -232,6 +210,28 @@ crsn.removeAllItems();
         box = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel13 = new javax.swing.JPanel();
+        jTextField3 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        StdList = new javax.swing.JTable();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        stdn = new javax.swing.JComboBox<>();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        EnrolList = new javax.swing.JTable();
+        crsn = new javax.swing.JComboBox<>();
+        sect = new javax.swing.JComboBox<>();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         profiletop = new javax.swing.JMenu();
         profileLogOut = new javax.swing.JMenuItem();
@@ -661,7 +661,7 @@ crsn.removeAllItems();
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 218, -1, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 930, 450));
+        jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 930, 490));
 
         jTabbedPane2.addTab("Welcome", jPanel4);
 
@@ -756,7 +756,7 @@ crsn.removeAllItems();
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 90, 30));
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 400));
+        jPanel5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 460));
 
         jTabbedPane2.addTab("Course ", jPanel5);
 
@@ -858,148 +858,12 @@ crsn.removeAllItems();
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 360, 370));
+        jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 360, 370));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 410));
+        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 460));
 
         jTabbedPane2.addTab("Add User", jPanel6);
-
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
-            }
-        });
-
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField3KeyPressed(evt);
-            }
-        });
-        jPanel13.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 37, 460, -1));
-
-        StdList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "s_id", "name", "pasword", "Email"
-            }
-        ));
-        jScrollPane2.setViewportView(StdList);
-
-        jPanel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 500, 250));
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Search Student");
-        jPanel13.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 6, -1, -1));
-
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel13.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 380));
-
-        jTabbedPane1.addTab("List", jPanel13);
-
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        stdn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Student--", "Ali Ahamad", "Junaid Sultan", "Aila Arshad", " " }));
-        stdn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stdnActionPerformed(evt);
-            }
-        });
-        jPanel14.add(stdn, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 44, 164, -1));
-
-        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Student Name");
-        jPanel14.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 16, -1, -1));
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/teacher_2.png"))); // NOI18N
-        jLabel34.setText("Teacher");
-        jPanel14.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 106, 122, -1));
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("Section");
-        jPanel14.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 16, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Course");
-        jPanel14.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 16, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("Teacher Name");
-        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 107, -1, -1));
-
-        jButton3.setBackground(new java.awt.Color(51, 102, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/course_icon.png"))); // NOI18N
-        jButton3.setText("Enroll");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 103, 92, -1));
-
-        EnrolList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Student", "course", "section", "status"
-            }
-        ));
-        jScrollPane3.setViewportView(EnrolList);
-
-        jPanel14.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 151, 504, 197));
-
-        crsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
-        crsn.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                crsnItemStateChanged(evt);
-            }
-        });
-        crsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crsnActionPerformed(evt);
-            }
-        });
-        jPanel14.add(crsn, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 44, 163, -1));
-
-        sect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Section--", "W1", "W2", "W3", "W4", "W5", "W6" }));
-        sect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sectActionPerformed(evt);
-            }
-        });
-        jPanel14.add(sect, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 44, 134, -1));
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel14.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 920, 380));
-
-        jTabbedPane1.addTab("Enrol", jPanel14);
-
-        jPanel7.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 0, 650, 399));
-
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 410));
-
-        jTabbedPane2.addTab("Student", jPanel7);
 
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1288,11 +1152,147 @@ crsn.removeAllItems();
         jPanel12.add(jTabbedPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 6, -1, -1));
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel12.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 440));
+        jPanel12.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 460));
 
         jTabbedPane2.addTab("Teacher", jPanel12);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 920, 450));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField3KeyPressed(evt);
+            }
+        });
+        jPanel13.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 37, 460, -1));
+
+        StdList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "s_id", "name", "pasword", "Email"
+            }
+        ));
+        jScrollPane2.setViewportView(StdList);
+
+        jPanel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 500, 250));
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("Search Student");
+        jPanel13.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 6, -1, -1));
+
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
+        jPanel13.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 380));
+
+        jTabbedPane1.addTab("List", jPanel13);
+
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        stdn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Student--", "Ali Ahamad", "Junaid Sultan", "Aila Arshad", " " }));
+        stdn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stdnActionPerformed(evt);
+            }
+        });
+        jPanel14.add(stdn, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 44, 164, -1));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Student Name");
+        jPanel14.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 16, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/teacher_2.png"))); // NOI18N
+        jLabel34.setText("Teacher");
+        jPanel14.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 106, 122, -1));
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Section");
+        jPanel14.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 16, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Course");
+        jPanel14.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 16, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Teacher Name");
+        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 107, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(51, 102, 255));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/course_icon.png"))); // NOI18N
+        jButton3.setText("Enroll");
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 103, 92, -1));
+
+        EnrolList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Student", "course", "section", "status"
+            }
+        ));
+        jScrollPane3.setViewportView(EnrolList);
+
+        jPanel14.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 151, 504, 197));
+
+        crsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Course--", "Programming Fundamental", "Object Oriented Programming", "Mobile App Development", "Web App Development ", "Machine Learning" }));
+        crsn.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                crsnItemStateChanged(evt);
+            }
+        });
+        crsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crsnActionPerformed(evt);
+            }
+        });
+        jPanel14.add(crsn, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 44, 163, -1));
+
+        sect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Section--", "W1", "W2", "W3", "W4", "W5", "W6" }));
+        sect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sectActionPerformed(evt);
+            }
+        });
+        jPanel14.add(sect, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 44, 134, -1));
+
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
+        jPanel14.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 920, 380));
+
+        jTabbedPane1.addTab("Enrol", jPanel14);
+
+        jPanel7.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 9, 650, 400));
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
+        jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 930, 500));
+
+        jTabbedPane2.addTab("Student", jPanel7);
+
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 920, 480));
 
         profiletop.setText("File");
 

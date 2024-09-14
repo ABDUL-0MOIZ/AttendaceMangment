@@ -119,7 +119,6 @@ public class Dashbord1 extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setEnabled(false);
         setLocation(new java.awt.Point(100, 40));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -436,7 +435,7 @@ public class Dashbord1 extends javax.swing.JFrame {
         jPanel12.add(Pswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 380, 330));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 440));
+        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 510));
 
         Spane.addTab("Student Portal", jPanel12);
 
@@ -622,7 +621,7 @@ public class Dashbord1 extends javax.swing.JFrame {
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 440));
+        jPanel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
 
         Spane.addTab("Admission", jPanel9);
 
@@ -637,8 +636,8 @@ public class Dashbord1 extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Spane))
+                .addComponent(Spane)
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Student", jPanel4);
@@ -753,7 +752,7 @@ public class Dashbord1 extends javax.swing.JFrame {
         jPanel8.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel8.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 440));
+        jPanel8.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 500));
 
         Tpane.addTab("Teacher Portal", jPanel8);
 
@@ -862,7 +861,7 @@ public class Dashbord1 extends javax.swing.JFrame {
         jPanel10.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/assit/wp2508260.jpg"))); // NOI18N
-        jPanel10.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 450));
+        jPanel10.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1000, 500));
 
         Tpane.addTab("Registration", jPanel10);
 
@@ -876,9 +875,7 @@ public class Dashbord1 extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(Tpane)
-                .addContainerGap())
+            .addComponent(Tpane)
         );
 
         jTabbedPane2.addTab("Teacher", jPanel5);
